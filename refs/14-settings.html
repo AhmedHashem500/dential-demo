@@ -1,0 +1,535 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dential Desktop — Settings · Visual Reference</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#3B82F6;--blue2:#2563EB;--navy:#0B1524;
+ --violet:#0D9488;--indigo:#14B8A6;--grad-brand:linear-gradient(135deg,#0D9488,#14B8A6);
+ --grad-nav:linear-gradient(90deg,#0F766E,#0D9488);--grad-btn:linear-gradient(90deg,#0D9488,#14B8A6);
+ --ok:#22C55E;--okfg:#15803D;--okbg:#E6F6EC;--warn:#F59E0B;--warnfg:#B45309;--warnbg:#FDF0E1;
+ --err:#EF4444;--errfg:#B42318;--errbg:#FCEBEB;--info:#3B82F6;--infofg:#1D4ED8;--infobg:#E7F0FE;
+ --h-rev:#0D9488;--h-sch:#2563EB;--h-peo:#10B981;--h-bil:#F59E0B;--h-tot:#EC4899;}
+*{box-sizing:border-box;margin:0;padding:0;font-family:'Inter','Cairo',system-ui,sans-serif}
+body{background:#3f4a56;color:#16233A}
+.num{font-variant-numeric:tabular-nums}
+.card svg{direction:ltr}
+.bar{position:sticky;top:0;z-index:9;background:var(--navy);color:#cfe0ff;padding:14px 22px;font-size:15px;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.bar b{color:#fff}.bar a{color:#8fd0ff;text-decoration:none;font-size:13px}
+.sect{color:#dfe7ef;font-size:20px;font-weight:700;margin:14px 0 2px}
+.wrap{padding:24px;display:flex;flex-direction:column;gap:26px;align-items:flex-start}
+.cap{color:#eaf0f6;font-size:16px}.cap b{color:#fff}.cap .id{color:#9fb2c8;font-weight:700;margin-right:8px}
+.capnote{color:#c7d3e2;font-size:14px;max-width:960px;line-height:1.55}
+.legend{margin:2px 0 6px;padding:14px 18px;background:#0f1d33;border:1px solid #24344f;border-radius:12px;color:#c7d3e2;font-size:14.5px;max-width:1040px;line-height:1.7}.legend b{color:#fff}
+.sw{display:inline-block;font-size:12px;font-weight:700;padding:3px 9px;border-radius:6px;margin-left:8px;vertical-align:middle}
+.sw-app{background:rgba(59,130,246,.22);color:#bcd6ff}
+.fs{width:960px;height:540px;overflow:hidden;border-radius:10px;box-shadow:0 14px 44px rgba(0,0,0,.4);flex:0 0 auto}
+.frame{width:1920px;height:1080px;transform:scale(.5);transform-origin:top left;position:relative;
+ --canvas:#F4F6FB;--surface:#fff;--surface2:#EEF2F8;--sunken:#F1F4FA;--overlay:#fff;
+ --text:#16233A;--text2:#586A86;--text3:#94A3BE;--hair:#E7ECF3;--strong:#CFD8E6;
+ --sbfg:#9AA8C2;--sbgrp:#66768F;--sbact:#FFFFFF;background:var(--canvas)}
+.frame.dark{--canvas:#0E1A2E;--surface:#152238;--surface2:#1C2C46;--sunken:#101E33;--overlay:#18263E;
+ --text:#E9EEF7;--text2:#94A3BE;--text3:#5F6E88;--hair:#243450;--strong:#35496A}
+.rowf{display:flex;gap:26px;flex-wrap:wrap;align-items:flex-start}
+/* ---------- App shell ---------- */
+.shell{display:flex;height:100%;color:var(--text)}
+.side{width:246px;flex:0 0 246px;background:var(--navy);display:flex;flex-direction:column;padding:18px 14px 14px}
+.brand{display:flex;align-items:center;gap:11px;padding:2px 8px 16px}
+.blogo{width:38px;height:38px;border-radius:11px;background:var(--grad-brand);color:#fff;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:800;flex:0 0 auto}
+.bname{color:#fff;font-size:18px;font-weight:700;line-height:1.2}.bname small{display:block;font-size:11.5px;font-weight:600;color:#66768F}
+.nav{flex:1;display:flex;flex-direction:column;gap:2px;overflow:hidden}
+.ngrp{font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#66768F;padding:14px 10px 6px}
+.nit{display:flex;align-items:center;gap:10px;color:#9AA8C2;font-size:14.5px;font-weight:600;padding:0 10px;height:38px;border-radius:10px}
+.nit .ni{width:22px;text-align:center;font-size:16px;flex:0 0 auto}
+.nit.on{background:var(--grad-nav);color:#fff}
+.sfoot{border-top:1px solid #1B2A44;padding-top:12px;display:flex;align-items:center;gap:10px}
+.sav{width:34px;height:34px;border-radius:999px;background:var(--grad-brand);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.sfoot .su{flex:1;min-width:0}.sfoot .su b{display:block;color:#fff;font-size:13.5px;font-weight:600}.sfoot .su span{color:#66768F;font-size:11.5px}
+.sfoot .qi{color:#66768F;font-size:14px;display:flex;gap:8px}
+.main{flex:1;display:flex;flex-direction:column;min-width:0}
+.topbar{height:64px;flex:0 0 64px;background:var(--surface);border-bottom:1px solid var(--hair);display:flex;align-items:center;gap:16px;padding:0 16px 0 24px}
+.ttl{font-size:18px;font-weight:600}
+.gsearch{width:340px;height:36px;background:var(--sunken);border:1px solid var(--hair);border-radius:10px;display:flex;align-items:center;gap:9px;padding:0 12px;color:var(--text3);font-size:14px}
+.kbd{margin-inline-start:auto;font-size:11px;font-weight:700;border:1px solid var(--strong);border-radius:6px;padding:1px 6px;color:var(--text2)}
+.tsp{flex:1}
+.datep{height:32px;border:1px solid var(--hair);border-radius:999px;display:flex;align-items:center;gap:7px;padding:0 13px;color:var(--text2);font-size:13px;font-weight:600}
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;padding:4px 11px;border-radius:999px}
+.c-ok{background:var(--okbg);color:var(--okfg)}.c-warn{background:var(--warnbg);color:var(--warnfg)}
+.c-err{background:var(--errbg);color:var(--errfg)}.c-info{background:var(--infobg);color:var(--infofg)}
+.c-neu{background:var(--surface2);color:var(--text2)}
+.tico{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--text2);font-size:17px;position:relative}
+.tico.act{background:var(--surface2);color:var(--text)}
+.eyebtn{height:44px;min-width:52px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.eyebtn.hid{background:linear-gradient(140deg,#F59E0B,#B45309);color:#fff;box-shadow:0 6px 16px rgba(245,158,11,.45)}
+.eyebtn.shw{background:var(--okbg);color:var(--okfg);border:1.5px solid rgba(34,197,94,.45)}
+.frame.priv .m{filter:blur(11px);pointer-events:none}
+.frame.priv .mi{filter:none;color:transparent!important;background:var(--surface2);border-radius:6px;padding:0 3px;user-select:none}
+.frame.priv .mi *{color:transparent!important}
+.tico .dot{position:absolute;top:6px;inset-inline-end:6px;min-width:15px;height:15px;border-radius:999px;background:var(--err);color:#fff;font-size:9.5px;font-weight:700;display:flex;align-items:center;justify-content:center;padding:0 3px}
+.tav{width:34px;height:34px;border-radius:999px;background:var(--grad-brand);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.wc{display:flex;gap:4px;color:var(--text2);margin-inline-start:6px}
+.wc span{width:48px;height:42px;display:flex;align-items:center;justify-content:center;border-radius:10px}
+.wc .cl{color:var(--err)}
+.content{flex:1;padding:24px 28px;display:flex;flex-direction:column;gap:24px;overflow:hidden}
+/* ---------- page header ---------- */
+.pagehd{display:flex;align-items:flex-end;gap:16px}
+.pagehd h1{font-size:30px;font-weight:700;line-height:1.25}
+.pagehd .psub{color:var(--text2);font-size:14.5px;margin-top:4px}
+.pact{margin-inline-start:auto;display:flex;gap:12px;align-items:center}
+.btn{height:38px;border:none;border-radius:10px;background:var(--grad-btn);color:#fff;font-size:14.5px;font-weight:700;padding:0 20px;display:flex;align-items:center;gap:8px;box-shadow:0 8px 20px rgba(13,148,136,.35)}
+.btn.gh{background:var(--surface);color:var(--text);box-shadow:none;border:1.5px solid var(--strong)}
+/* ---------- KPI tiles ---------- */
+.kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.kpis.k3{grid-template-columns:repeat(3,1fr)}
+.kpi{border-radius:14px;padding:18px;color:#fff;position:relative;overflow:hidden;min-height:126px;display:flex;flex-direction:column}
+.k-rev{background:linear-gradient(140deg,#0D9488,#2A1352);box-shadow:0 10px 26px rgba(13,148,136,.40)}
+.k-sch{background:linear-gradient(140deg,#2563EB,#0C204B);box-shadow:0 10px 26px rgba(37,99,235,.40)}
+.k-peo{background:linear-gradient(140deg,#10B981,#053D2B);box-shadow:0 10px 26px rgba(16,185,129,.40)}
+.k-bil{background:linear-gradient(140deg,#F59E0B,#4E3204);box-shadow:0 10px 26px rgba(245,158,11,.40)}
+.k-tot{background:linear-gradient(140deg,#EC4899,#4B1731);box-shadow:0 10px 26px rgba(236,72,153,.40)}
+.kpi .kh{display:flex;align-items:center;gap:10px}
+.kpi .kic{width:34px;height:34px;border-radius:11px;background:rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center;font-size:16px}
+.kpi .klb{font-size:13px;font-weight:600;opacity:.9}
+.kpi .kv{font-size:34px;font-weight:700;line-height:1.1;margin-top:10px;letter-spacing:-.3px}
+.kpi .kd{margin-top:auto;display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700;opacity:.92;padding-top:8px}
+.kpi .kd .up{background:rgba(255,255,255,.22);border-radius:999px;padding:2px 8px}
+.kpi svg{position:absolute;bottom:10px;inset-inline-end:12px;opacity:.85}
+/* ---------- compact stat strip ---------- */
+.strip{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.stat{background:var(--surface);border:1px solid var(--hair);border-radius:14px;padding:12px 16px;display:flex;align-items:center;gap:12px}
+.stat .sic{width:32px;height:32px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:15px;flex:0 0 auto}
+.stat .sl{font-size:12.5px;color:var(--text2);font-weight:600}
+.stat .sv{font-size:19px;font-weight:700;line-height:1.2}
+.stat .go{margin-inline-start:auto;color:var(--text3);font-size:14px}
+/* ---------- cards & grids ---------- */
+.mid{display:grid;grid-template-columns:1.5fr 1fr 1.15fr;gap:16px;min-height:0}
+.mid.noc{grid-template-columns:1.6fr 1fr}
+.bot{display:grid;grid-template-columns:1fr 1.1fr 1.1fr 1.2fr;gap:16px;min-height:0;flex:1}
+.bot.b2{grid-template-columns:1fr 1fr}
+.card{background:var(--surface);border:1px solid var(--hair);border-radius:14px;padding:18px 20px;display:flex;flex-direction:column;min-width:0;min-height:0}
+.chd{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.chd h3{font-size:17px;font-weight:600}
+.chd .lnk{margin-inline-start:auto;color:var(--blue2);font-size:13px;font-weight:600}
+.fchips{display:flex;gap:6px;margin-inline-start:auto}
+.fch{font-size:12px;font-weight:700;padding:5px 12px;border-radius:999px;color:var(--text2);background:var(--surface2)}
+.fch.on{background:var(--grad-btn);color:#fff}
+.cbig{font-size:26px;font-weight:700;letter-spacing:-.3px}
+.cdel{font-size:12px;font-weight:700;color:var(--okfg);background:var(--okbg);border-radius:999px;padding:3px 9px}
+/* sessions list */
+.srow{display:flex;align-items:center;gap:12px;padding:10px 2px;border-bottom:1px solid var(--hair)}
+.srow:last-child{border-bottom:none}
+.stime{width:46px;font-size:13.5px;font-weight:700;color:var(--text2);flex:0 0 auto}
+.savt{width:34px;height:34px;border-radius:999px;display:flex;align-items:center;justify-content:center;font-size:12.5px;font-weight:700;flex:0 0 auto}
+.a1{background:#EAF1FF;color:#1D4ED8}.a2{background:#E6F6EC;color:#15803D}.a3{background:#FDF0E1;color:#B45309}.a4{background:#F3E8FF;color:#8B5CF6}.a5{background:#FCE7F3;color:#BE185D}
+.frame.dark .a1{background:#16294A;color:#93C5FD}.frame.dark .a2{background:#123524;color:#6EE7A8}.frame.dark .a3{background:#2E2410;color:#FBBF24}.frame.dark .a4{background:#2A1352;color:#C4B5FD}.frame.dark .a5{background:#4B1731;color:#F9A8D4}
+.srow .sn{flex:1;min-width:0}.srow .sn b{display:block;font-size:14px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.srow .sn span{display:block;font-size:12.5px;color:var(--text3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* calendar */
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center;flex:1;align-content:start}
+.cal .dh{font-size:11px;font-weight:700;color:var(--text3);text-transform:uppercase;padding:4px 0}
+.cal .d{font-size:13px;color:var(--text2);padding:7px 0;border-radius:9px;position:relative}
+.cal .d.out{color:var(--text3);opacity:.5}
+.cal .d.today{background:var(--grad-btn);color:#fff;font-weight:700}
+.cal .d.dot:after{content:"";position:absolute;bottom:3px;left:50%;transform:translateX(-50%);width:4px;height:4px;border-radius:50%;background:var(--violet)}
+.cal .d.today.dot:after{background:#fff}
+/* donut & legend */
+.dwrap{display:flex;align-items:center;gap:18px;flex:1}
+.dctr{position:relative;flex:0 0 auto}
+.dctr .din{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.dctr .din b{font-size:26px;font-weight:700}.dctr .din span{font-size:11.5px;color:var(--text3)}
+.dleg{display:flex;flex-direction:column;gap:10px;min-width:0}
+.dleg .li{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text2)}
+.dleg .li i{width:9px;height:9px;border-radius:3px;flex:0 0 auto}
+.dleg .li b{margin-inline-start:auto;font-weight:700;color:var(--text)}
+/* top doctors bars */
+.brow{margin-bottom:10px}
+.brow .bl{display:flex;font-size:12.5px;margin-bottom:4px}.brow .bl b{font-weight:600}
+.brow .bl span{margin-inline-start:auto;font-weight:700;color:var(--text2)}
+.track{height:7px;border-radius:6px;background:var(--surface2);overflow:hidden}
+.track i{display:block;height:100%;border-radius:6px;background:var(--grad-btn)}
+/* activity */
+.act{display:flex;gap:11px;padding:8px 0;border-bottom:1px solid var(--hair)}
+.act:last-child{border-bottom:none}
+.aic{width:28px;height:28px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:13px;flex:0 0 auto}
+.act .at{min-width:0;flex:1;font-size:13px;line-height:1.45}.act .at .a1l{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.act .at b{font-weight:600}
+.act .am{font-size:11.5px;color:var(--text3);margin-top:2px}
+/* quick actions */
+.qgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;flex:1;align-content:start}
+.qgrid2{display:grid;grid-template-columns:1fr 1fr;gap:10px 12px;flex:1;align-content:start}
+.qgrid2.one{grid-template-columns:1fr}
+.qrow{display:flex;gap:10px;align-items:center;padding:6px 8px;border-radius:10px;border:1px solid transparent;min-width:0;overflow:hidden}
+.qrow:hover{border-color:var(--hair);background:var(--surface2)}
+.qrow .qic{width:30px;height:30px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:14px;flex:0 0 auto}
+.qrow.big{padding:9px 10px;gap:12px;border:1.5px solid var(--hair)}
+.qrow.big .qic{width:40px;height:40px;border-radius:12px;font-size:18px}
+.qrow.big .qtx b{font-size:14px}
+.qrow.big .qtx span{font-size:11.5px}
+.qrow .qtx{min-width:0;flex:1;overflow:hidden}.qrow .qtx b{display:block;font-size:12.5px;font-weight:600;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.qrow .qtx span{display:block;font-size:10.5px;color:var(--text3);line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.qa{border:1.5px solid var(--hair);border-radius:12px;padding:10px 8px;display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center}
+.qa .qic{width:32px;height:32px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:15px}
+.qa b{font-size:12px;font-weight:600;line-height:1.3}
+.q1{background:#EAF1FF;color:#1D4ED8}.q2{background:#F3E8FF;color:#0D9488}.q3{background:#E6F6EC;color:#15803D}
+.q4{background:#FDF0E1;color:#B45309}.q5{background:#FCE7F3;color:#BE185D}.q6{background:#E7F0FE;color:#1D4ED8}
+.frame.dark .q1{background:#16294A;color:#93C5FD}.frame.dark .q2{background:#2A1352;color:#C4B5FD}.frame.dark .q3{background:#123524;color:#6EE7A8}
+.frame.dark .q4{background:#2E2410;color:#FBBF24}.frame.dark .q5{background:#4B1731;color:#F9A8D4}.frame.dark .q6{background:#16294A;color:#93C5FD}
+/* empty-state bits */
+.ebanner{background:var(--infobg);color:var(--infofg);border-radius:12px;padding:13px 18px;font-size:14px;font-weight:600;display:flex;align-items:center;gap:10px}
+.frame.dark .ebanner{background:#16294A;color:#93C5FD}
+.ewid{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--text3);font-size:13px;text-align:center;padding:14px}
+.ewid .eic{width:44px;height:44px;border-radius:13px;background:var(--surface2);display:flex;align-items:center;justify-content:center;font-size:19px}
+/* overlays */
+.scrim{position:absolute;inset:0;background:rgba(11,21,36,.45)}
+.drawer{position:absolute;top:0;bottom:0;inset-inline-end:0;width:480px;background:var(--overlay);box-shadow:-10px 0 30px rgba(0,0,0,.14);display:flex;flex-direction:column;padding:22px 24px}
+.dhd{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.dhd h2{font-size:20px;font-weight:700}
+.dhd .lnk{margin-inline-start:auto;color:var(--blue2);font-size:13px;font-weight:600}
+.ngroup{font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--text3);padding:12px 0 4px}
+.nrow{display:flex;gap:11px;padding:11px 2px;border-bottom:1px solid var(--hair);align-items:flex-start}
+.nrow:last-child{border-bottom:none}
+.nrow .nt{min-width:0;flex:1;font-size:13.5px;line-height:1.45}.nrow .nt b{font-weight:600}
+.nrow .nm{font-size:11.5px;color:var(--text3);margin-top:3px}
+.nrow .go{color:var(--text3);font-size:14px;padding-top:4px}
+.unread{width:7px;height:7px;border-radius:50%;background:var(--blue);flex:0 0 auto;margin-top:7px}
+.nsearch{height:38px;background:var(--sunken);border:1px solid var(--hair);border-radius:10px;display:flex;align-items:center;gap:9px;padding:0 12px;color:var(--text3);font-size:13.5px;margin:6px 0 2px}
+.pgn{margin-top:auto;border-top:1px solid var(--hair);padding-top:12px;display:flex;align-items:center;gap:6px}
+.pgn .pp{min-width:30px;height:30px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:12.5px;font-weight:700;color:var(--text2);border:1px solid var(--hair)}
+.pgn .pp.on{background:var(--grad-btn);color:#fff;border:none}
+.pgn .pp.nav{color:var(--text3)}
+.pgn .pinfo{margin-inline-start:auto;font-size:11.5px;color:var(--text3)}
+.pgsz{display:flex;align-items:center;gap:6px;padding-top:10px}
+.pgsz>span:first-child{font-size:12px;font-weight:600;color:var(--text2);margin-inline-end:2px}
+.pgsz .pp{min-width:40px}
+.pgsz .pinfo{margin-inline-start:auto;font-size:11px;color:var(--text3)}
+.pal{position:absolute;top:120px;left:50%;transform:translateX(-50%);width:760px;background:var(--overlay);border-radius:16px;box-shadow:0 12px 40px rgba(0,0,0,.18);padding:8px 0;overflow:hidden}
+.pinp{display:flex;align-items:center;gap:11px;padding:16px 20px;border-bottom:1px solid var(--hair);font-size:17px;color:var(--text)}
+.pinp .caret{color:var(--blue);font-weight:400}
+.pgrp{font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--text3);padding:12px 20px 4px}
+.prow{display:flex;align-items:center;gap:12px;padding:9px 20px;font-size:14px}
+.prow.on{background:var(--surface2)}
+.prow .pic{width:28px;height:28px;border-radius:9px;background:var(--surface2);display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--text2);flex:0 0 auto}
+.prow.on .pic{background:var(--overlay)}
+.prow b{font-weight:600}.prow span{color:var(--text3);font-size:12.5px}
+.prow .k{margin-inline-start:auto;color:var(--text3);font-size:12px}
+.pfoot{display:flex;gap:16px;padding:10px 20px 8px;border-top:1px solid var(--hair);color:var(--text3);font-size:12px}
+.pfoot b{font-weight:700;border:1px solid var(--strong);border-radius:5px;padding:0 5px;font-size:11px}
+/* states strip */
+.states{display:flex;gap:20px;flex-wrap:wrap}.sb{width:330px}
+.sb .t{font-size:15px;color:#eaf0f6;margin-bottom:8px;font-weight:600}
+.mini{background:#fff;border:1px solid #E7ECF3;border-radius:12px;padding:16px;color:#16233A}
+.mini .cap2{font-size:12px;color:#586A86;margin-top:8px}
+.skelrow{height:34px;border-radius:9px;background:linear-gradient(90deg,#EEF2F8,#E4EAF3,#EEF2F8);margin:7px 0}
+
+/* v1.5.0 App Shell: Money nav merge (Ahmed 2026-07-21) · rule 24: doctype + #scr scroll container (mobile preview blocks document scroll) */
+html,body{height:auto;min-height:100%;overflow-y:auto}
+#scr{position:fixed;inset:0;overflow:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+
+/* ========== Module 03 — Doctors (L4 card-grid list · L5 master-detail) ========== */
+/* L4 filter bar */
+.fbar{display:flex;align-items:center;gap:12px}
+.qsearch{width:320px;height:36px;background:var(--sunken);border:1px solid var(--hair);border-radius:10px;display:flex;align-items:center;gap:9px;padding:0 12px;color:var(--text3);font-size:14px}
+.fsp{flex:1}
+.vtog{display:flex;gap:2px;border:1px solid var(--hair);border-radius:10px;padding:2px}
+.vtog span{width:34px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--text3)}
+.vtog span.on{background:var(--grad-btn);color:#fff}
+/* ---- doctor card grid (v1.2.0 — bigger, colorful, photo-first) ---- */
+.dgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-content:start}
+.dcard{background:var(--surface);border:1px solid var(--hair);border-radius:18px;padding:20px 22px 18px;display:flex;flex-direction:column;gap:15px;min-width:0;position:relative;overflow:hidden;box-shadow:0 1px 2px rgba(15,23,42,.04),0 10px 28px rgba(15,23,42,.07)}
+.frame.dark .dcard{box-shadow:0 1px 2px rgba(0,0,0,.25),0 12px 30px rgba(0,0,0,.35)}
+.dcard.sel{border-color:transparent;box-shadow:0 0 0 2.5px var(--violet),0 14px 34px rgba(13,148,136,.22)}
+.dcard.hov{box-shadow:0 16px 36px rgba(15,23,42,.14);transform:translateY(-3px)}
+.dacc{position:absolute;top:0;left:0;right:0;height:5px}
+.g1{background:linear-gradient(135deg,#6366F1,#8B5CF6)}
+.g2{background:linear-gradient(135deg,#06B6D4,#3B82F6)}
+.g3{background:linear-gradient(135deg,#F59E0B,#F97316)}
+.g4{background:linear-gradient(135deg,#10B981,#059669)}
+.g5{background:linear-gradient(135deg,#EC4899,#F43F5E)}
+.gsys{background:linear-gradient(135deg,#94A3BE,#64748B)}
+.dchd{display:flex;align-items:center;gap:15px;min-width:0}
+.dcav{width:72px;height:72px;border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:700;color:#fff;flex:0 0 auto;position:relative;box-shadow:0 8px 18px rgba(15,23,42,.18)}
+.dcav small{position:absolute;bottom:4px;font-size:7.5px;font-weight:700;letter-spacing:.6px;opacity:.85;text-transform:uppercase}
+.dcav .sync{position:absolute;inset-inline-end:-3px;bottom:-3px;width:12px;height:12px;border:2.5px solid var(--surface)}
+.dcnm{min-width:0;flex:1}
+.dcnm b{display:block;font-size:18px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dcnm small{display:block;font-size:13px;color:var(--text3);font-weight:600;margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dccode{font-size:11.5px;font-weight:700;padding:4px 10px;border-radius:8px;background:var(--surface2);color:var(--text2);flex:0 0 auto;align-self:flex-start;letter-spacing:.3px}
+/* overview tab (v1.3.0) */
+.ovh{font-size:16.5px;font-weight:800;display:flex;align-items:center;margin-bottom:8px}
+.ovh .lnk2{margin-inline-start:auto;font-size:12px;font-weight:700;color:var(--violet)}
+.ov2{display:grid;grid-template-columns:1.35fr 1fr;gap:16px}
+.ovli{display:flex;align-items:center;gap:10px;padding:8.5px 0;border-top:1px solid var(--hair);font-size:14px;font-weight:600;color:var(--text)}
+.ovli.f{border-top:none}
+.ovli .amt{margin-inline-start:auto;font-weight:700;white-space:nowrap}
+.ovli .mut{color:var(--text3);font-size:12px}
+.bwrap{display:flex;align-items:flex-end;gap:16px;height:132px;padding:6px 6px 0}
+.bcol{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;height:100%;justify-content:flex-end}
+.bcol .bv{font-size:10.5px;font-weight:700;color:var(--text3)}
+.bcol .bbar{width:68%;border-radius:8px 8px 4px 4px;background:var(--grad-btn);opacity:.85}
+.bcol .bl{font-size:11px;color:var(--text3);font-weight:600}
+/* activity tab (v1.3.0) */
+.srcchip{font-size:9.5px;font-weight:800;letter-spacing:.5px;padding:2px 6px;border-radius:6px;background:var(--surface2);color:var(--text3)}
+.dcrow{display:flex;align-items:center;gap:10px;font-size:14.5px;font-weight:600;color:var(--text2);min-width:0}
+.dcic{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex:0 0 auto;font-size:16px}
+.dcrow .num{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dcbody{display:flex;flex-direction:column;gap:9px}
+.dcfoot{border-top:1px solid var(--hair);padding-top:14px;display:flex;align-items:flex-end;gap:8px}
+.dcbl{min-width:0}
+.dcbl .l{font-size:11.5px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--text3)}
+.dcbl .v{font-size:23px;font-weight:800;letter-spacing:-.3px;margin-top:3px;white-space:nowrap}
+.dcbl .v.cr{color:#15803D}
+.frame.dark .dcbl .v.cr{color:#6EE7A8}
+.dcfoot .chip{margin-inline-start:auto;flex:0 0 auto}
+.gfoot{display:flex;align-items:center;gap:6px;padding:2px 4px;margin-top:auto}
+.gfoot .pg{min-width:30px;height:30px;flex:0 0 auto;border-radius:9px;display:inline-flex;align-items:center;justify-content:center;font-size:12.5px;font-weight:700;color:var(--text2);border:1px solid var(--hair);background:var(--surface)}
+.gfoot .pg.on{background:var(--grad-btn);color:#fff;border:none}
+.gfoot .pg.pnv{color:var(--text3)}
+.gfoot .pinfo{margin-inline-start:auto;font-size:12px;color:var(--text3)}
+/* data tables v2 (v1.4.0 — module standard: bigger type, violet header, column hairlines, shadows) */
+.content .card{box-shadow:0 1px 2px rgba(15,23,42,.04),0 8px 22px rgba(15,23,42,.06);border-radius:16px}
+.frame.dark .content .card{box-shadow:0 1px 2px rgba(0,0,0,.25),0 10px 26px rgba(0,0,0,.35)}
+.tblcard{padding:0;overflow:hidden;flex:1;position:relative}
+.tbl{width:100%;border-collapse:collapse;font-size:15.5px;color:var(--text)} /* explicit: no-doctype quirks mode stops tables inheriting color */
+.tbl th{background:rgba(13,148,136,.08);text-align:start;font-size:13px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:var(--text);padding:14px 16px;white-space:nowrap;border-bottom:2px solid rgba(13,148,136,.30)}
+.tbl td{padding:14px 16px;border-top:1px solid var(--hair);vertical-align:middle;white-space:nowrap;font-weight:600}
+.tbl tbody tr:nth-child(even) td{background:var(--sunken)} /* Taqseet zebra */
+.tbl .amt-g{color:#15803D}.frame.dark .tbl .amt-g{color:#6EE7A8}
+.tbl .amt-a{color:#B45309}.frame.dark .tbl .amt-a{color:#FBBF24}
+.tbl .neg{color:#DC2626}.frame.dark .tbl .neg{color:#F87171}
+.tbl th.end,.tbl td.end{text-align:end}
+.tbl td.mono{font-weight:600;color:var(--text2)}
+/* colored row actions (v1.4.0 — shown when the action is AVAILABLE; revealed on hover in the app) */
+.ract{display:inline-flex;gap:7px}
+.rbtn{width:32px;height:32px;border-radius:10px;display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto}
+.rbtn.ed{background:#CCFBF1;color:#0F766E}
+.rbtn.del{background:#FEE2E2;color:#DC2626}
+.rbtn.cor{background:#FEF3C7;color:#B45309}
+.frame.dark .rbtn.ed{background:#113B36;color:#5EEAD4}
+.frame.dark .rbtn.del{background:#450A0A;color:#FCA5A5}
+.frame.dark .rbtn.cor{background:#2E2410;color:#FBBF24}
+.noact{color:var(--text3);font-size:11.5px;font-weight:600}
+/* pagination v2 (v1.4.0 — GLOBAL: every data table; page size 100/200/500) */
+.psize{display:inline-flex;align-items:center;gap:7px;border:1.5px solid var(--strong);border-radius:9px;height:32px;padding:0 11px;font-size:12.5px;font-weight:700;color:var(--text2);background:var(--surface)}
+.pagef .psize,.gfoot .psize{margin-inline-start:auto}
+.pagef .pinfo,.gfoot .pinfo{margin-inline-start:0}
+.tnote{padding:10px 16px;border-top:1px solid var(--hair);font-size:12px;color:var(--text3);line-height:1.5}
+.ovcard{position:relative;overflow:hidden}
+.ncard .nic{width:42px;height:42px;border-radius:12px;font-size:18px}
+.ncard{box-shadow:0 1px 2px rgba(15,23,42,.04),0 6px 16px rgba(15,23,42,.05)}
+.ncard .ract{margin-inline-start:auto;flex:0 0 auto}
+.trsel td{background:var(--surface2)!important}
+.trsel td:first-child{box-shadow:inset 3px 0 0 var(--violet)}
+[dir=rtl] .trsel td:first-child{box-shadow:inset -3px 0 0 var(--violet)}
+.pcell{display:flex;align-items:center;gap:10px}
+.avr{width:32px;height:32px;border-radius:999px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex:0 0 auto}
+.pcell b{font-weight:600}
+.pcell small{display:block;font-size:11.5px;color:var(--text3);font-weight:500}
+.sync{width:8px;height:8px;border-radius:50%;display:inline-block}
+.sy-ok{background:var(--ok)}.sy-pn{background:var(--warn)}.sy-st{background:var(--err)}
+.dots{color:var(--text3);font-size:16px;font-weight:700;letter-spacing:1px}
+.pagef{display:flex;align-items:center;gap:6px;border-top:1px solid var(--hair);padding:11px 16px}
+.pagef .pinfo{margin-inline-start:auto;font-size:12px;color:var(--text3)}
+.pagef .pg{min-width:30px;height:30px;flex:0 0 auto;border-radius:9px;display:inline-flex;align-items:center;justify-content:center;font-size:12.5px;font-weight:700;color:var(--text2);border:1px solid var(--hair)}
+.pagef .pg.on{background:var(--grad-btn);color:#fff;border:none}
+.pagef .pg.pnv{color:var(--text3)}
+.selbar{display:flex;align-items:center;gap:12px;background:var(--infobg);color:var(--infofg);border-radius:12px;padding:9px 16px;font-size:13.5px;font-weight:600}
+.cbx{width:16px;height:16px;border:1.5px solid var(--strong);border-radius:4px;display:inline-block;vertical-align:middle}
+.cbx.on{background:var(--grad-btn);border-color:transparent;position:relative}
+/* L5 profile (v1.4.0 — colorful: gradient back button, icon money stats, pill tabs) */
+.phd{display:flex;align-items:center;gap:16px}
+.pav{width:64px;height:64px;border-radius:18px;background:var(--grad-brand);color:#fff;font-size:22px;font-weight:700;display:flex;align-items:center;justify-content:center;flex:0 0 auto;box-shadow:0 8px 18px rgba(15,23,42,.18)}
+.pnm h1{font-size:26px;font-weight:800;line-height:1.2}
+.pnm .psub{color:var(--text2);font-size:14.5px;font-weight:600;margin-top:3px}
+.pstats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.pstat{background:var(--surface);border:1px solid var(--hair);border-radius:16px;padding:14px 16px;position:relative;overflow:hidden;box-shadow:0 1px 2px rgba(15,23,42,.04),0 8px 22px rgba(15,23,42,.06)}
+.frame.dark .pstat{box-shadow:0 1px 2px rgba(0,0,0,.25),0 10px 26px rgba(0,0,0,.35)}
+.pstat .prow{display:flex;align-items:center;gap:13px}
+.pstat .pico{width:46px;height:46px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:21px;color:#fff;flex:0 0 auto;box-shadow:0 6px 14px rgba(15,23,42,.16)}
+.pstat .pnk{width:40px;height:40px;display:flex;align-items:center;justify-content:center;flex:0 0 auto} /* naked icon, no bg (v1.6.0) */
+.pnk.red{color:#DC2626}.pnk.blu{color:#2563EB}.pnk.grn{color:#15803D}.pnk.amb{color:#B45309}
+.pnk.ind{color:#4F46E5}.pnk.emr{color:#059669}.pnk.org{color:#EA580C}.pnk.pnk2{color:#DB2777}
+.frame.dark .pnk.red{color:#F87171}.frame.dark .pnk.blu{color:#93C5FD}.frame.dark .pnk.grn{color:#6EE7A8}.frame.dark .pnk.amb{color:#FBBF24}
+.frame.dark .pnk.ind{color:#A5B4FC}.frame.dark .pnk.emr{color:#6EE7A8}.frame.dark .pnk.org{color:#FDBA74}.frame.dark .pnk.pnk2{color:#F9A8D4}
+.pstat .sl{font-size:13.5px;color:var(--text2);font-weight:700}
+.pstat .sv{font-size:24px;font-weight:800;margin-top:2px;letter-spacing:-.3px}
+.pstat .sv.red{color:#DC2626}.pstat .sv.grn{color:#15803D}.pstat .sv.amb{color:#B45309}
+.frame.dark .pstat .sv.red{color:#F87171}.frame.dark .pstat .sv.grn{color:#6EE7A8}.frame.dark .pstat .sv.amb{color:#FBBF24}
+.pstat .sm{font-size:12.5px;color:var(--text3);margin-top:5px}
+.g6{background:linear-gradient(135deg,#EF4444,#DC2626)}
+.tabs{display:flex;gap:6px;border:1px solid var(--hair);border-radius:14px;padding:6px;background:var(--surface);box-shadow:0 1px 2px rgba(15,23,42,.04),0 8px 22px rgba(15,23,42,.06)}
+.frame.dark .tabs{box-shadow:0 1px 2px rgba(0,0,0,.25),0 10px 26px rgba(0,0,0,.35)}
+.tab{display:flex;align-items:center;gap:8px;padding:11px 16px;font-size:15.5px;font-weight:700;color:var(--text2);border-radius:10px}
+.tab .ti{font-size:16.5px}
+.tab.on{color:#fff;background:var(--grad-btn);box-shadow:0 6px 16px rgba(13,148,136,.35)}
+.bck{width:46px;height:46px;border-radius:14px;background:var(--grad-btn);color:#fff;font-size:20px;display:flex;align-items:center;justify-content:center;flex:0 0 auto;box-shadow:0 8px 20px rgba(13,148,136,.35)}
+/* notes */
+.ngrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-content:start}
+.ncard{border:1px solid var(--hair);border-radius:16px;padding:16px 18px;display:flex;flex-direction:column;gap:10px;background:var(--surface);position:relative;overflow:hidden;min-width:0}
+.ncard .nhd{display:flex;align-items:center;gap:12px}
+.ncard .nic{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:15px;flex:0 0 auto}
+.ncard .nb{flex:1;min-width:0}
+.ncard .nb b{font-size:16px;font-weight:800;display:block}
+.ncard .nb p{font-size:14px;color:var(--text2);margin-top:3px;line-height:1.5}
+.ncard .nmt{font-size:12.5px;color:var(--text3);margin-top:6px}
+.ncard.done{opacity:.62}
+.ncard.done .nb b{text-decoration:line-through}
+/* drawer form */
+.fld{display:flex;flex-direction:column;gap:6px;margin-bottom:14px;min-width:0;flex:1}
+.fld label{font-size:13px;font-weight:600;color:var(--text2)}
+.fld label .rq{color:var(--err);font-weight:700}
+.inp{height:38px;border:1.5px solid var(--strong);border-radius:10px;padding:0 12px;font-size:14px;background:var(--surface);display:flex;align-items:center;color:var(--text);gap:8px}
+.inp.ro{background:var(--sunken);color:var(--text2);border-color:var(--hair)}
+.inp.ta{height:76px;align-items:flex-start;padding-top:9px}
+.inp .sfx{margin-inline-start:auto;color:var(--text3);font-size:12.5px}
+.hint{font-size:11.5px;color:var(--text3);line-height:1.4}
+.frw{display:flex;gap:14px}
+.dfoot{margin-top:auto;border-top:1px solid var(--hair);padding-top:14px;display:flex;gap:12px;justify-content:flex-end}
+/* dialogs */
+.dlgc{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:520px;background:var(--overlay);border-radius:14px;box-shadow:0 12px 40px rgba(0,0,0,.18);padding:22px 24px;display:flex;flex-direction:column}
+.dlgc h2{font-size:21px;font-weight:800;margin-bottom:4px}
+.dlgc .dsub{font-size:13px;color:var(--text2);margin-bottom:14px}
+.szgrid{display:flex;gap:10px;margin-bottom:14px}
+.szc{flex:1;border:2px solid var(--strong);border-radius:14px;padding:12px 10px;text-align:center;color:var(--text2);background:var(--surface)}
+.szc b{display:block;font-size:14.5px;font-weight:800;color:var(--text);margin-top:6px}
+.szc small{display:block;font-size:11.5px;color:var(--text3);margin-top:2px}
+.szc svg{color:var(--text3)}
+.szc.on{border-color:#4F46E5;box-shadow:0 0 0 3.5px rgba(79,70,229,.16)}
+.szc.on svg{color:#4F46E5}
+.dact{display:flex;gap:12px;justify-content:flex-end;margin-top:6px}
+.dact .btn{height:44px;font-size:15px;padding:0 22px}
+.istrip{background:var(--infobg);color:var(--infofg);border-radius:10px;padding:10px 13px;font-size:12.5px;font-weight:600;line-height:1.45;margin-bottom:14px}
+.wstrip{background:var(--warnbg);color:var(--warnfg);border-radius:10px;padding:10px 13px;font-size:12.5px;font-weight:600;line-height:1.45;margin-bottom:14px}
+.gicon{width:46px;height:46px;border-radius:13px;background:var(--errbg);color:var(--errfg);display:flex;align-items:center;justify-content:center;font-size:21px;margin-bottom:12px}
+/* statement preview (L15 — print tokens, always paper-white) */
+.pvbar{display:flex;align-items:center;gap:12px}
+.paperwrap{flex:1;background:var(--sunken);border:1px solid var(--hair);border-radius:14px;display:flex;justify-content:center;padding:22px;overflow:hidden}
+.paper{width:800px;background:#fff;color:#101623;box-shadow:0 14px 44px rgba(0,0,0,.22);padding:30px 34px;font-size:12px;display:flex;flex-direction:column}
+.paper .ph{display:flex;align-items:center;gap:12px;border-bottom:2px solid #101623;padding-bottom:14px}
+.paper .ph .plog{width:40px;height:40px;border-radius:11px;background:var(--grad-brand);color:#fff;font-size:19px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.paper .ph b{font-size:17px}
+.paper .ph small{display:block;color:#4b5568;font-size:11px}
+.paper .ptt{margin-inline-start:auto;text-align:end;font-size:11.5px;color:#4b5568}
+.paper .ptt b{display:block;font-size:14px;color:#101623}
+.ptbl{width:100%;border-collapse:collapse;margin-top:6px;color:#101623}
+.ptbl th{border-bottom:1.5px solid #101623;text-align:start;font-size:10.5px;text-transform:uppercase;letter-spacing:.4px;padding:7px 8px;color:#374151;white-space:nowrap}
+.ptbl td{border-bottom:1px solid #E2E6EC;padding:6.5px 7px;white-space:nowrap}
+.ptbl td:nth-child(2){white-space:normal;min-width:150px}
+.ptbl th.end,.ptbl td.end{text-align:end}
+.ptbl tr.op td{color:#4b5568;font-style:italic}
+.ptbl tr.tot td{border-top:2px solid #101623;border-bottom:none;font-weight:700}
+.pmeta{display:flex;gap:30px;margin:16px 0 8px}
+.pmeta .pmb b{display:block;font-size:13px}
+.pmeta .pmb span{font-size:11px;color:#4b5568}
+.pfooter{margin-top:auto;border-top:1px solid #E2E6EC;padding-top:10px;display:flex;font-size:10.5px;color:#6b7280}
+.pfooter span:last-child{margin-inline-start:auto}
+/* v1.9.1 — size-aware print layouts (no overlap / no off-paper, organized per paper size) */
+.paper5{width:520px;padding:22px 24px;font-size:10.5px}
+.paper5 .ph{padding-bottom:10px;gap:10px}
+.paper5 .ph .plog{width:44px;height:44px;font-size:20px;border-radius:12px}
+.paper5 .ph .cname{font-size:17px}
+.paper5 .ph small{font-size:9.5px;line-height:1.5}
+.paper5 .ptt b{font-size:13px}
+.paper5 .ptt{font-size:9.5px}
+.paper5 .psb .v{font-size:12px}
+.paper5 .psb{padding:7px 9px;border-radius:8px}
+.paper5 .psb .l{font-size:8.5px}
+.paper5 .pbill{padding:7px 10px;gap:12px;margin-top:10px}
+.paper5 .pbill b{font-size:11px}
+.paper5 .pbill .bt{font-size:8.5px}
+.paper5 .ptbl th{font-size:8.5px;padding:5px 5px}
+.paper5 .ptbl td{font-size:10px;padding:5px 5px}
+.paper5 .psum{gap:6px;margin:10px 0 6px}
+.paper5 .pfooter{font-size:8.5px}
+.papert{width:302px;background:#fff;color:#101623;box-shadow:0 14px 44px rgba(0,0,0,.22);padding:16px 14px;font-size:11px;display:flex;flex-direction:column;text-align:center}
+.papert .tlogo{width:40px;height:40px;border-radius:11px;background:linear-gradient(135deg,#14B8A6,#0D9488);color:#fff;font-size:19px;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 6px}
+.papert b.tn{font-size:15px;font-weight:800}
+.papert .tsm{font-size:9.5px;color:#4b5568;line-height:1.55}
+.tdiv{border-top:1.5px dashed #9aa5b1;margin:8px 0}
+.tline{display:flex;justify-content:space-between;gap:8px;text-align:start;font-size:10.5px;padding:2px 0}
+.tline .d{color:#4b5568;flex:1;min-width:0}
+.tline b{white-space:nowrap;font-weight:700}
+.tbig{display:flex;justify-content:space-between;font-size:15px;font-weight:800;padding:4px 0}
+/* ===== v1.7.0 — ACCENT ROLE SEPARATION (Ahmed: don't repeat one accent across a screen) =====
+   teal = primary actions + active nav ONLY · indigo = selection/active states · slate = filter/paging controls ·
+   semantic colors = money/status · 5 data hues = identity */
+.fch.on{background:#16233A;color:#fff}
+.frame.dark .fch.on{background:#E9EEF7;color:#16233A}
+.vtog span.on{background:#16233A;color:#fff}
+.frame.dark .vtog span.on{background:#E9EEF7;color:#16233A}
+.pagef .pg.on,.gfoot .pg.on{background:#16233A;color:#fff;border:none}
+.frame.dark .pagef .pg.on,.frame.dark .gfoot .pg.on{background:#E9EEF7;color:#16233A}
+.tab.on{background:linear-gradient(135deg,#6366F1,#4F46E5);box-shadow:0 6px 16px rgba(79,70,229,.35)}
+.bck{background:linear-gradient(135deg,#334760,#16233A);box-shadow:0 8px 20px rgba(22,35,58,.35)}
+.bcol .bbar{background:linear-gradient(180deg,#818CF8,#4F46E5)}
+.dcard.sel{box-shadow:0 0 0 2.5px #4F46E5,0 14px 34px rgba(79,70,229,.22)}
+.trsel td:first-child{box-shadow:inset 3px 0 0 #4F46E5}
+[dir=rtl] .trsel td:first-child{box-shadow:inset -3px 0 0 #4F46E5}
+.rbtn.ed{background:#EEF2FF;color:#4F46E5}
+.frame.dark .rbtn.ed{background:#1E2352;color:#A5B4FC}
+/* ===== v1.8.0 — Add/Edit drawer refinement (photo-first, thicker borders, colored label icons) ===== */
+.drawer{box-shadow:-24px 0 64px rgba(15,23,42,.28)}
+.dhd h2{font-size:22px;font-weight:800}
+.fld label{font-size:14px;font-weight:800;color:var(--text);display:flex;align-items:center;gap:9px}
+.flic{width:26px;height:26px;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto}
+.inp{height:44px;border-width:2px;border-radius:12px;font-size:15px;font-weight:600}
+.inp.ta{height:80px}
+.inp.foc{border-color:#4F46E5;box-shadow:0 0 0 3.5px rgba(79,70,229,.16)}
+.photodz{border:2.5px dashed var(--strong);border-radius:18px;padding:16px 18px;display:flex;align-items:center;gap:16px;background:var(--sunken);margin-bottom:16px}
+.photodz .pdz{width:78px;height:78px;border-radius:22px;background:linear-gradient(135deg,#14B8A6,#0D9488);color:#fff;display:flex;align-items:center;justify-content:center;flex:0 0 auto;box-shadow:0 10px 22px rgba(13,148,136,.35)}
+.photodz b{font-size:15.5px;font-weight:800;display:block}
+.photodz .hint{margin-top:4px}
+.photodz .btn.gh{height:34px;font-size:13px;margin-top:8px}
+.dfoot .btn{height:44px;font-size:15.5px;padding:0 24px}
+/* ===== v1.8.0 — Statement/receipt v2 (big branded header, summary boxes, better table) ===== */
+.paper .ph{align-items:flex-start;border-bottom:3px solid #0D9488;padding-bottom:16px;gap:16px}
+.paper .ph .plog{width:64px;height:64px;font-size:30px;border-radius:16px;background:linear-gradient(135deg,#14B8A6,#0D9488)}
+.paper .ph .cname{font-size:25px;font-weight:800;letter-spacing:-.3px;display:block}
+.paper .ph small{font-size:11.5px;line-height:1.7}
+.paper .ptt b{font-size:19px;letter-spacing:.6px;color:#0D9488}
+.psum{display:flex;gap:10px;margin:16px 0 8px}
+.psb{flex:1;border:1.5px solid #E2E6EC;border-radius:10px;padding:10px 12px}
+.psb .l{font-size:10px;text-transform:uppercase;letter-spacing:.6px;color:#4b5568;font-weight:800}
+.psb .v{font-size:15.5px;font-weight:800;margin-top:3px}
+.psb.hl{background:linear-gradient(135deg,#14B8A6,#0D9488);border:none;color:#fff}
+.psb.hl .l{color:rgba(255,255,255,.85)}
+.pbill{border:1.5px solid #E2E6EC;border-radius:10px;padding:10px 14px;margin-top:14px;display:flex;gap:20px;align-items:center}
+.pbill .bt{font-size:10px;text-transform:uppercase;letter-spacing:.6px;color:#4b5568;font-weight:800}
+.pbill b{font-size:15px}
+.ptbl th{background:#E6F5F3;color:#0B4F49;border-bottom:2px solid #0D9488;font-weight:800;font-size:10.5px}
+.ptbl tbody tr:nth-child(even) td{background:#F7FAFA}
+.ptbl td{font-weight:600}
+.ptbl td:last-child{font-weight:800}
+.ptbl tr.tot td{border-top:2.5px solid #0D9488;background:#E6F5F3;font-weight:800}
+
+/* ========== Module 14 — Settings (v1.0.0) ========== */
+.setwrap{display:flex;gap:18px;flex:1;min-height:0}
+.setrail{width:250px;flex:0 0 auto;background:var(--surface);border:1px solid var(--hair);border-radius:16px;padding:10px;display:flex;flex-direction:column;gap:2px;box-shadow:0 1px 2px rgba(15,23,42,.04),0 8px 22px rgba(15,23,42,.06)}
+.setgrp{font-size:10.5px;font-weight:800;letter-spacing:.7px;text-transform:uppercase;color:var(--text3);padding:10px 12px 4px}
+.setit{display:flex;align-items:center;gap:9px;padding:9px 12px;border-radius:10px;font-size:14px;font-weight:700;color:var(--text2)}
+.setit.on{background:var(--grad-btn);color:#fff}
+.setbody{flex:1;display:flex;flex-direction:column;gap:16px;min-width:0}
+.setcard{background:var(--surface);border:1px solid var(--hair);border-radius:16px;padding:18px 20px;box-shadow:0 1px 2px rgba(15,23,42,.04),0 8px 22px rgba(15,23,42,.06)}
+.setcard h3{font-size:16.5px;font-weight:800;margin-bottom:4px}
+.setcard .sd{font-size:12.5px;color:var(--text3);font-weight:600;margin-bottom:12px}
+/* theme tiles */
+.thgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.thc{border:2px solid var(--hair);border-radius:14px;overflow:hidden;position:relative}
+.thc.on{border-color:#4F46E5;box-shadow:0 0 0 3px rgba(79,70,229,.16)}
+.thc .tp{height:56px;display:flex}
+.thc .tp .sb2{width:26%}
+.thc .tp .cn{flex:1}
+.thc b{display:block;font-size:12px;font-weight:800;padding:8px 10px}
+.thc small{position:absolute;top:6px;inset-inline-end:8px;font-size:9px;font-weight:800;color:#fff;background:rgba(15,23,42,.45);border-radius:6px;padding:2px 6px}
+/* toggle */
+.tgl{width:46px;height:26px;border-radius:99px;background:var(--strong);position:relative;flex:0 0 auto}
+.tgl:after{content:'';position:absolute;top:3px;inset-inline-start:3px;width:20px;height:20px;border-radius:99px;background:#fff}
+.tgl.on{background:linear-gradient(135deg,#14B8A6,#0D9488)}
+.tgl.on:after{inset-inline-start:auto;inset-inline-end:3px}
+.setrow{display:flex;align-items:center;gap:14px;padding:12px 0;border-top:1px solid var(--hair)}
+.setrow:first-of-type{border-top:none}
+.setrow .sl2{flex:1;min-width:0}
+.setrow .sl2 b{font-size:14.5px;font-weight:800;display:block}
+.setrow .sl2 small{font-size:12px;color:var(--text3);font-weight:600}
+.lockp{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:4px 11px;font-size:11.5px;font-weight:800;background:var(--surface2);color:var(--text3)}
+.dz{border:1.5px solid rgba(220,38,38,.4);border-radius:16px;padding:18px 20px;background:var(--errbg)}
+.dz h3{color:var(--errfg)}
+</style><div id="scr"><div class="bar"><b>Dential Desktop · Settings · Visual Reference v1.0.0</b> · §10.11 + §13 [LOCKED] · rules 1–24 · unattended build — recommendations applied · 1920×1080 @ 50% · <a href="#app">Appearance</a> <a href="#fin">Finance</a> <a href="#inv">Inventory</a> <a href="#sys">System</a> <a href="#states">States</a></div><div class="wrap"><div class="legend"><b>Product: Dential Desktop · Module 14 — Settings · spec §10.11 + §13 [LOCKED] · v1.0.0 (unattended, recommendations applied).</b> &#1602;&#1587;&#1591;-style grouped tab rail: GENERAL (Appearance [10 themes + 3-way white-label colors] · Size &amp; display · Language · Company profile) · FINANCE (Currency &amp; format [&#128274; structural, Amdt B] · Numbering [&#128274;] · Tax &amp; discounts [&#167;11.7 engine OFF default]) · OPERATIONS (Dental [FDI numbering setting — the Cases v1.5.0 pointer lands here] · <b>Inventory [Amdt-D expiry window 30d + warn-only + default low-stock]</b> · Receipts &amp; printing · Notifications) · SYSTEM (Security · <b>Backup &amp; restore [&#167;13: daily+on-close, keep 30+monthly, signed+encrypted, guarded restore]</b> · <b>Updates [Velopack fully-automatic, backup-first, offline package path]</b> · Error log · Changelog · <b>guarded Danger zone [disabled after real data]</b>) · ACCESS (pointer to Users &amp; roles). Structural settings lock after the first transaction; every change audited.</div><div class="sect" id="app">A · General — Appearance</div><div class="cap"><span class="id">ST-01 / §8 · §10.11</span><b>Appearance — 10 themes + white-label colors</b><span class="sw sw-app">Dential</span></div><div class="capnote">Theme tiles preview sidebar/canvas/accent (Clinical Teal active, indigo ring); 3-way color override below. Size &amp; display (named UI sizes + font &#8722;5&#8230;+5) lives on its own rail item.</div><div class="fs"><div class="frame"><div class="shell"><div class="side"><div class="brand"><div class="blogo">D</div><div class="bname">Dential<small>Dental Lab System</small></div></div><div class="nav"><div class="ngrp">RECORDS</div><div class="nit"><span class="ni">&#8962;</span>Dashboard</div><div class="nit"><span class="ni">&#9685;</span>Doctors</div><div class="nit"><span class="ni">&#9863;</span>Patients</div><div class="nit"><span class="ni">&#9965;</span>Treatment cases</div><div class="ngrp">FINANCIAL</div><div class="nit"><span class="ni">&#128176;</span>Money</div><div class="nit"><span class="ni">&#128202;</span>Reports</div><div class="ngrp">INVENTORY</div><div class="nit"><span class="ni">&#128230;</span>Materials &amp; inventory</div><div class="nit"><span class="ni">&#128666;</span>Suppliers &amp; purchases</div><div class="nit"><span class="ni">&#9879;</span>External labs</div><div class="ngrp">TEAM</div><div class="nit"><span class="ni">&#9776;</span>Technicians</div><div class="ngrp">SYSTEM</div><div class="nit"><span class="ni">&#128737;</span>Users &amp; roles</div><div class="nit on"><span class="ni">&#9881;</span>Settings</div><div class="nit"><span class="ni">&#10003;</span>Audit log</div><div class="nit"><span class="ni">&#9645;</span>Devices &amp; sync</div></div><div class="sfoot"><div class="sav">AH</div><div class="su"><b>Ahmed H.</b><span>Owner</span></div><div class="qi"><span>&#9790;</span><span>?</span><span>&#9881;</span><span>&#9211;</span></div></div></div><div class="main"><div class="topbar"><div class="ttl">Settings</div><div class="gsearch"><span>&#128269;</span>Search patients, doctors, cases…<span class="kbd">Ctrl+K</span></div><div class="tsp"></div><span class="chip c-ok">&#9679; Synced · <span class="num">12:41</span></span><div class="datep">&#128197; <span class="num">Mon · 20 Jul 2026</span></div><div class="tico">&#128276;<span class="dot num">7</span></div><div class="tico">&#9790;</div><div class="tico">&#9881;</div><div class="tav">AH</div><div class="wc"><span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/></svg></span><span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"><rect x="5.5" y="5.5" width="13" height="13" rx="2.5"/></svg></span><span class="cl"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></span></div></div><div class="content"><div class="pagehd"><div><h1>Settings</h1><div class="psub">&#1602;&#1587;&#1591;-style grouped rail (&#167;10.11) · structural settings lock after the first transaction · every change audited</div></div><div class="pact"></div></div><div class="setwrap"><div class="setrail"><div class="setgrp">GENERAL</div><div class="setit on"><span>&#127912;</span>Appearance</div><div class="setit"><span>&#128207;</span>Size &amp; display</div><div class="setit"><span>&#127760;</span>Language</div><div class="setit"><span>&#127970;</span>Company profile</div><div class="setgrp">FINANCE</div><div class="setit"><span>&#128181;</span>Currency &amp; format</div><div class="setit"><span>&#128290;</span>Numbering</div><div class="setit"><span>&#129534;</span>Tax &amp; discounts</div><div class="setgrp">OPERATIONS</div><div class="setit"><span>&#9965;</span>Dental</div><div class="setit"><span>&#128230;</span>Inventory</div><div class="setit"><span>&#128424;</span>Receipts &amp; printing</div><div class="setit"><span>&#128276;</span>Notifications</div><div class="setgrp">SYSTEM</div><div class="setit"><span>&#128737;</span>Security</div><div class="setit"><span>&#128190;</span>Backup &amp; restore</div><div class="setit"><span>&#8635;</span>Updates</div><div class="setit"><span>&#128203;</span>Error log</div><div class="setit"><span>&#10024;</span>Changelog</div><div class="setit"><span>&#9888;</span>Danger zone</div><div class="setgrp">ACCESS</div><div class="setit"><span>&#128101;</span>Users &amp; roles &#8599;</div></div><div class="setbody"><div class="setcard"><h3>Theme</h3><div class="sd">10 themes (5 light · 5 dark) — defaults Clinical Teal / Midnight Slate (&#167;8); golden-tested pair by pair</div><div class="thgrid"><div class="thc on"><div class="tp"><span class="sb2" style="background:#0E1A2E"></span><span class="cn" style="background:#F6F9FB"></span></div><b><span style="display:inline-block;width:10px;height:10px;border-radius:99px;background:#0D9488;margin-inline-end:6px"></span>Clinical Teal</b><small>LIGHT</small></div><div class="thc"><div class="tp"><span class="sb2" style="background:#171448"></span><span class="cn" style="background:#F7F7FE"></span></div><b><span style="display:inline-block;width:10px;height:10px;border-radius:99px;background:#4F46E5;margin-inline-end:6px"></span>Royal Indigo</b><small>LIGHT</small></div><div class="thc"><div class="tp"><span class="sb2" style="background:#3A2E10"></span><span class="cn" style="background:#FDFAF4"></span></div><b><span style="display:inline-block;width:10px;height:10px;border-radius:99px;background:#D97706;margin-inline-end:6px"></span>Warm Sand</b><small>LIGHT</small></div><div class="thc"><div class="tp"><span class="sb2" style="background:#0D2B22"></span><span class="cn" style="background:#F4FBF8"></span></div><b><span style="display:inline-block;width:10px;height:10px;border-radius:99px;background:#059669;margin-inline-end:6px"></span>Forest</b><small>LIGHT</small></div><div class="thc"><div class="tp"><span class="sb2" style="background:#450A2E"></span><span class="cn" style="background:#FDF6F9"></span></div><b><span style="display:inline-block;width:10px;height:10px;border-radius:99px;background:#DB2777;margin-inline-end:6px"></span>Rose Quartz</b><small>LIGHT</small></div><div class="thc"><div class="tp"><span class="sb2" style="background:#020617"></span><span class="cn" style="background:#0F172A"></span></div><b><span style="display:inline-block;width:10px;height:10px;border-radius:99px;background:#14B8A6;margin-inline-end:6px"></span>Midnight Slate</b><small>DARK</small></div><div class="thc"><div class="tp"><span class="sb2" style="background:#05041B"></span><span class="cn" style="background:#111036"></span></div><b><span style="display:inline-block;width:10px;height:10px;border-radius:99px;background:#818CF8;margin-inline-end:6px"></span>Deep Indigo</b><small>DARK</small></div><div class="thc"><div class="tp"><span class="sb2" style="background:#0C0A09"></span><span class="cn" style="background:#1C1917"></span></div><b><span style="display:inline-block;width:10px;height:10px;border-radius:99px;background:#F59E0B;margin-inline-end:6px"></span>Carbon Amber</b><small>DARK</small></div><div class="thc"><div class="tp"><span class="sb2" style="background:#03110D"></span><span class="cn" style="background:#0A1F1A"></span></div><b><span style="display:inline-block;width:10px;height:10px;border-radius:99px;background:#34D399;margin-inline-end:6px"></span>Pine</b><small>DARK</small></div><div class="thc"><div class="tp"><span class="sb2" style="background:#160511"></span><span class="cn" style="background:#2A0F22"></span></div><b><span style="display:inline-block;width:10px;height:10px;border-radius:99px;background:#F472B6;margin-inline-end:6px"></span>Plum</b><small>DARK</small></div></div></div><div class="setcard"><h3>White-label colors</h3><div class="sd">3-way override on top of any theme (&#167;8)</div><div class="setrow"><div class="sl2"><b>Primary color</b><small>buttons · active nav</small></div><span style="width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,#14B8A6,#0D9488)"></span></div><div class="setrow"><div class="sl2"><b>Background</b><small>content canvas</small></div><span style="width:34px;height:34px;border-radius:10px;background:#F6F9FB;border:1px solid var(--hair)"></span></div><div class="setrow"><div class="sl2"><b>Sidebar</b><small>navigation rail</small></div><span style="width:34px;height:34px;border-radius:10px;background:#0E1A2E"></span></div></div></div></div></div></div></div></div></div><div class="sect" id="fin">B · Finance</div><div class="cap"><span class="id">ST-02 / §10.11 · Amdt B · §11.7</span><b>Finance — currency (locked), numbering, tax engine</b><span class="sw sw-app">Dential</span></div><div class="capnote">Structural locks visible as pills; tax engine OFF default with the max-discount-without-override control (&#167;11.4).</div><div class="fs"><div class="frame"><div class="shell"><div class="side"><div class="brand"><div class="blogo">D</div><div class="bname">Dential<small>Dental Lab System</small></div></div><div class="nav"><div class="ngrp">RECORDS</div><div class="nit"><span class="ni">&#8962;</span>Dashboard</div><div class="nit"><span class="ni">&#9685;</span>Doctors</div><div class="nit"><span class="ni">&#9863;</span>Patients</div><div class="nit"><span class="ni">&#9965;</span>Treatment cases</div><div class="ngrp">FINANCIAL</div><div class="nit"><span class="ni">&#128176;</span>Money</div><div class="nit"><span class="ni">&#128202;</span>Reports</div><div class="ngrp">INVENTORY</div><div class="nit"><span class="ni">&#128230;</span>Materials &amp; inventory</div><div class="nit"><span class="ni">&#128666;</span>Suppliers &amp; purchases</div><div class="nit"><span class="ni">&#9879;</span>External labs</div><div class="ngrp">TEAM</div><div class="nit"><span class="ni">&#9776;</span>Technicians</div><div class="ngrp">SYSTEM</div><div class="nit"><span class="ni">&#128737;</span>Users &amp; roles</div><div class="nit on"><span class="ni">&#9881;</span>Settings</div><div class="nit"><span class="ni">&#10003;</span>Audit log</div><div class="nit"><span class="ni">&#9645;</span>Devices &amp; sync</div></div><div class="sfoot"><div class="sav">AH</div><div class="su"><b>Ahmed H.</b><span>Owner</span></div><div class="qi"><span>&#9790;</span><span>?</span><span>&#9881;</span><span>&#9211;</span></div></div></div><div class="main"><div class="topbar"><div class="ttl">Settings</div><div class="gsearch"><span>&#128269;</span>Search patients, doctors, cases…<span class="kbd">Ctrl+K</span></div><div class="tsp"></div><span class="chip c-ok">&#9679; Synced · <span class="num">12:41</span></span><div class="datep">&#128197; <span class="num">Mon · 20 Jul 2026</span></div><div class="tico">&#128276;<span class="dot num">7</span></div><div class="tico">&#9790;</div><div class="tico">&#9881;</div><div class="tav">AH</div><div class="wc"><span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/></svg></span><span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"><rect x="5.5" y="5.5" width="13" height="13" rx="2.5"/></svg></span><span class="cl"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></span></div></div><div class="content"><div class="pagehd"><div><h1>Settings</h1><div class="psub">&#1602;&#1587;&#1591;-style grouped rail (&#167;10.11) · structural settings lock after the first transaction · every change audited</div></div><div class="pact"></div></div><div class="setwrap"><div class="setrail"><div class="setgrp">GENERAL</div><div class="setit"><span>&#127912;</span>Appearance</div><div class="setit"><span>&#128207;</span>Size &amp; display</div><div class="setit"><span>&#127760;</span>Language</div><div class="setit"><span>&#127970;</span>Company profile</div><div class="setgrp">FINANCE</div><div class="setit"><span>&#128181;</span>Currency &amp; format</div><div class="setit"><span>&#128290;</span>Numbering</div><div class="setit on"><span>&#129534;</span>Tax &amp; discounts</div><div class="setgrp">OPERATIONS</div><div class="setit"><span>&#9965;</span>Dental</div><div class="setit"><span>&#128230;</span>Inventory</div><div class="setit"><span>&#128424;</span>Receipts &amp; printing</div><div class="setit"><span>&#128276;</span>Notifications</div><div class="setgrp">SYSTEM</div><div class="setit"><span>&#128737;</span>Security</div><div class="setit"><span>&#128190;</span>Backup &amp; restore</div><div class="setit"><span>&#8635;</span>Updates</div><div class="setit"><span>&#128203;</span>Error log</div><div class="setit"><span>&#10024;</span>Changelog</div><div class="setit"><span>&#9888;</span>Danger zone</div><div class="setgrp">ACCESS</div><div class="setit"><span>&#128101;</span>Users &amp; roles &#8599;</div></div><div class="setbody"><div class="setcard"><h3>Currency &amp; format <span class="lockp">&#128274; locked after first transaction</span></h3><div class="sd">Single app-wide currency (Amendment B) — integer smallest-unit storage, no floats, no exchange rates</div><div class="setrow"><div class="sl2"><b>Currency</b><small>code · symbol · decimals</small></div><div class="inp" style="width:280px"><b>EGP</b><span class="sfx">&#163;E · 2 decimals</span></div></div><div class="setrow"><div class="sl2"><b>Rounding</b><small>&#167;11.8 — half-up to smallest unit</small></div><div class="inp" style="width:280px">Half-up <span class="sfx">42.505 &#8594; 42.51</span></div></div></div><div class="setcard"><h3>Numbering <span class="lockp">&#128274; structural</span></h3><div class="sd">Device-segmented human numbers (&#167;2.6) — center code + per-type sequences</div><div class="setrow"><div class="sl2"><b>Center code</b></div><div class="inp num" style="width:280px">CEN01</div></div><div class="setrow"><div class="sl2"><b>Example</b><small>invoice numbering preview</small></div><div class="inp num" dir="ltr" style="width:280px">CEN01-INV-D02-2026-000045</div></div></div><div class="setcard"><h3>Tax &amp; discounts</h3><div class="sd">&#167;11.7 engine — OFF by default; dynamic named rates; historical documents never recomputed</div><div class="setrow"><div class="sl2"><b>Tax engine</b><small>VAT — exclusive, on top</small></div><span class="tgl"></span></div><div class="setrow"><div class="sl2"><b>Max discount without override</b><small>&#167;11.4 — above needs money authority</small></div><div class="inp num" style="width:280px">15%</div></div></div></div></div></div></div></div></div></div><div class="sect" id="inv">C · Operations — Inventory (Amendment D lands here)</div><div class="cap"><span class="id">ST-03 / Amdt D · §10.4</span><b>Inventory &amp; Dental</b><span class="sw sw-app">Dential</span></div><div class="capnote">The expiry-warning window (30d) + warn-only behavior + default low-stock threshold; Dental holds the FDI/Universal/Palmer numbering setting the Cases module points to.</div><div class="fs"><div class="frame"><div class="shell"><div class="side"><div class="brand"><div class="blogo">D</div><div class="bname">Dential<small>Dental Lab System</small></div></div><div class="nav"><div class="ngrp">RECORDS</div><div class="nit"><span class="ni">&#8962;</span>Dashboard</div><div class="nit"><span class="ni">&#9685;</span>Doctors</div><div class="nit"><span class="ni">&#9863;</span>Patients</div><div class="nit"><span class="ni">&#9965;</span>Treatment cases</div><div class="ngrp">FINANCIAL</div><div class="nit"><span class="ni">&#128176;</span>Money</div><div class="nit"><span class="ni">&#128202;</span>Reports</div><div class="ngrp">INVENTORY</div><div class="nit"><span class="ni">&#128230;</span>Materials &amp; inventory</div><div class="nit"><span class="ni">&#128666;</span>Suppliers &amp; purchases</div><div class="nit"><span class="ni">&#9879;</span>External labs</div><div class="ngrp">TEAM</div><div class="nit"><span class="ni">&#9776;</span>Technicians</div><div class="ngrp">SYSTEM</div><div class="nit"><span class="ni">&#128737;</span>Users &amp; roles</div><div class="nit on"><span class="ni">&#9881;</span>Settings</div><div class="nit"><span class="ni">&#10003;</span>Audit log</div><div class="nit"><span class="ni">&#9645;</span>Devices &amp; sync</div></div><div class="sfoot"><div class="sav">AH</div><div class="su"><b>Ahmed H.</b><span>Owner</span></div><div class="qi"><span>&#9790;</span><span>?</span><span>&#9881;</span><span>&#9211;</span></div></div></div><div class="main"><div class="topbar"><div class="ttl">Settings</div><div class="gsearch"><span>&#128269;</span>Search patients, doctors, cases…<span class="kbd">Ctrl+K</span></div><div class="tsp"></div><span class="chip c-ok">&#9679; Synced · <span class="num">12:41</span></span><div class="datep">&#128197; <span class="num">Mon · 20 Jul 2026</span></div><div class="tico">&#128276;<span class="dot num">7</span></div><div class="tico">&#9790;</div><div class="tico">&#9881;</div><div class="tav">AH</div><div class="wc"><span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/></svg></span><span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"><rect x="5.5" y="5.5" width="13" height="13" rx="2.5"/></svg></span><span class="cl"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></span></div></div><div class="content"><div class="pagehd"><div><h1>Settings</h1><div class="psub">&#1602;&#1587;&#1591;-style grouped rail (&#167;10.11) · structural settings lock after the first transaction · every change audited</div></div><div class="pact"></div></div><div class="setwrap"><div class="setrail"><div class="setgrp">GENERAL</div><div class="setit"><span>&#127912;</span>Appearance</div><div class="setit"><span>&#128207;</span>Size &amp; display</div><div class="setit"><span>&#127760;</span>Language</div><div class="setit"><span>&#127970;</span>Company profile</div><div class="setgrp">FINANCE</div><div class="setit"><span>&#128181;</span>Currency &amp; format</div><div class="setit"><span>&#128290;</span>Numbering</div><div class="setit"><span>&#129534;</span>Tax &amp; discounts</div><div class="setgrp">OPERATIONS</div><div class="setit"><span>&#9965;</span>Dental</div><div class="setit on"><span>&#128230;</span>Inventory</div><div class="setit"><span>&#128424;</span>Receipts &amp; printing</div><div class="setit"><span>&#128276;</span>Notifications</div><div class="setgrp">SYSTEM</div><div class="setit"><span>&#128737;</span>Security</div><div class="setit"><span>&#128190;</span>Backup &amp; restore</div><div class="setit"><span>&#8635;</span>Updates</div><div class="setit"><span>&#128203;</span>Error log</div><div class="setit"><span>&#10024;</span>Changelog</div><div class="setit"><span>&#9888;</span>Danger zone</div><div class="setgrp">ACCESS</div><div class="setit"><span>&#128101;</span>Users &amp; roles &#8599;</div></div><div class="setbody"><div class="setcard"><h3>Inventory</h3><div class="sd">Stock &amp; batches (&#167;10.3 + Amendment D)</div><div class="setrow"><div class="sl2"><b>Expiry warning window</b><small>Amdt D — &#8220;Expiring soon&#8221; at &#8804; N days</small></div><div class="inp num" style="width:280px">30 days</div></div><div class="setrow"><div class="sl2"><b>Expired stock behavior</b><small>Ahmed 2026-07-21 — warn, never block</small></div><div class="inp" style="width:280px">Warn only <span class="sfx">write-off available</span></div></div><div class="setrow"><div class="sl2"><b>Default low-stock alert</b><small>new materials start with this threshold</small></div><div class="inp num" style="width:280px">5</div></div></div><div class="setcard"><h3>Dental</h3><div class="sd">&#167;10.4 chart preferences</div><div class="setrow"><div class="sl2"><b>Tooth numbering</b><small>chart stores FDI ids; display relabels live</small></div><div class="inp" style="width:280px">FDI <span class="sfx">Universal · Palmer available</span></div></div><div class="setrow"><div class="sl2"><b>Primary dentition entry</b><small>from the v1.5.0 Cases decision — revisit point</small></div><span class="tgl"></span></div></div></div></div></div></div></div></div></div><div class="sect" id="sys">D · System — Backup, Updates, Danger zone</div><div class="cap"><span class="id">ST-04 / §13</span><b>Backup &amp; restore · Updates · guarded Danger zone</b><span class="sw sw-app">Dential</span></div><div class="capnote">Daily+on-close schedule (keep 30+monthly) · verified last-backup line + Backup now · guarded Restore (the §13 chain spelled out) · fully-automatic Updates w/ offline package path · Danger zone disabled once real data exists.</div><div class="fs"><div class="frame"><div class="shell"><div class="side"><div class="brand"><div class="blogo">D</div><div class="bname">Dential<small>Dental Lab System</small></div></div><div class="nav"><div class="ngrp">RECORDS</div><div class="nit"><span class="ni">&#8962;</span>Dashboard</div><div class="nit"><span class="ni">&#9685;</span>Doctors</div><div class="nit"><span class="ni">&#9863;</span>Patients</div><div class="nit"><span class="ni">&#9965;</span>Treatment cases</div><div class="ngrp">FINANCIAL</div><div class="nit"><span class="ni">&#128176;</span>Money</div><div class="nit"><span class="ni">&#128202;</span>Reports</div><div class="ngrp">INVENTORY</div><div class="nit"><span class="ni">&#128230;</span>Materials &amp; inventory</div><div class="nit"><span class="ni">&#128666;</span>Suppliers &amp; purchases</div><div class="nit"><span class="ni">&#9879;</span>External labs</div><div class="ngrp">TEAM</div><div class="nit"><span class="ni">&#9776;</span>Technicians</div><div class="ngrp">SYSTEM</div><div class="nit"><span class="ni">&#128737;</span>Users &amp; roles</div><div class="nit on"><span class="ni">&#9881;</span>Settings</div><div class="nit"><span class="ni">&#10003;</span>Audit log</div><div class="nit"><span class="ni">&#9645;</span>Devices &amp; sync</div></div><div class="sfoot"><div class="sav">AH</div><div class="su"><b>Ahmed H.</b><span>Owner</span></div><div class="qi"><span>&#9790;</span><span>?</span><span>&#9881;</span><span>&#9211;</span></div></div></div><div class="main"><div class="topbar"><div class="ttl">Settings</div><div class="gsearch"><span>&#128269;</span>Search patients, doctors, cases…<span class="kbd">Ctrl+K</span></div><div class="tsp"></div><span class="chip c-ok">&#9679; Synced · <span class="num">12:41</span></span><div class="datep">&#128197; <span class="num">Mon · 20 Jul 2026</span></div><div class="tico">&#128276;<span class="dot num">7</span></div><div class="tico">&#9790;</div><div class="tico">&#9881;</div><div class="tav">AH</div><div class="wc"><span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/></svg></span><span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"><rect x="5.5" y="5.5" width="13" height="13" rx="2.5"/></svg></span><span class="cl"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></span></div></div><div class="content"><div class="pagehd"><div><h1>Settings</h1><div class="psub">&#1602;&#1587;&#1591;-style grouped rail (&#167;10.11) · structural settings lock after the first transaction · every change audited</div></div><div class="pact"></div></div><div class="setwrap"><div class="setrail"><div class="setgrp">GENERAL</div><div class="setit"><span>&#127912;</span>Appearance</div><div class="setit"><span>&#128207;</span>Size &amp; display</div><div class="setit"><span>&#127760;</span>Language</div><div class="setit"><span>&#127970;</span>Company profile</div><div class="setgrp">FINANCE</div><div class="setit"><span>&#128181;</span>Currency &amp; format</div><div class="setit"><span>&#128290;</span>Numbering</div><div class="setit"><span>&#129534;</span>Tax &amp; discounts</div><div class="setgrp">OPERATIONS</div><div class="setit"><span>&#9965;</span>Dental</div><div class="setit"><span>&#128230;</span>Inventory</div><div class="setit"><span>&#128424;</span>Receipts &amp; printing</div><div class="setit"><span>&#128276;</span>Notifications</div><div class="setgrp">SYSTEM</div><div class="setit"><span>&#128737;</span>Security</div><div class="setit on"><span>&#128190;</span>Backup &amp; restore</div><div class="setit"><span>&#8635;</span>Updates</div><div class="setit"><span>&#128203;</span>Error log</div><div class="setit"><span>&#10024;</span>Changelog</div><div class="setit"><span>&#9888;</span>Danger zone</div><div class="setgrp">ACCESS</div><div class="setit"><span>&#128101;</span>Users &amp; roles &#8599;</div></div><div class="setbody"><div class="setcard"><h3>Backup &amp; restore <span class="chip c-ok">master device</span></h3><div class="sd">&#167;13 — signed (Ed25519) + DPAPI-encrypted whole-DB snapshots incl. the audit chain</div><div class="setrow"><div class="sl2"><b>Schedule</b><small>daily + on-close · keep 30 + monthly</small></div><span class="tgl on"></span></div><div class="setrow"><div class="sl2"><b>External copy</b><small>optional second location</small></div><div class="inp" style="width:280px" dir="ltr">E:\DentialBackups\</div></div><div class="setrow"><div class="sl2"><b>Last backup</b><small>verified signature &#10003;</small></div><span class="num">Today 03:00 · 148 MB</span><button class="btn gh" style="height:36px">Backup now</button></div><div class="setrow"><div class="sl2"><b>Restore</b><small>Owner + re-auth + typed confirm · verify-sig &#8594; auto safety-backup &#8594; apply &#8594; sync re-bootstrap (&#167;4.11, zero-loss)</small></div><button class="btn gh" style="height:36px">Restore&#8230;</button></div></div><div class="setcard"><h3>Updates</h3><div class="sd">&#167;13 — Velopack, fully automatic: check &#8594; download &#8594; apply on relaunch · backup-first · transactional migrations auto-rollback · release-notes notification</div><div class="setrow"><div class="sl2"><b>Current version</b></div><span class="num">1.0.0 (build 2026.07.21) · </span><span class="chip c-ok">Up to date</span></div><div class="setrow"><div class="sl2"><b>Offline package</b><small>&#167;3.14 path always exists — signed, verified</small></div><button class="btn gh" style="height:36px">Install from file&#8230;</button></div></div><div class="dz"><h3>&#9888; Danger zone</h3><div class="sd" style="color:var(--errfg)">Guarded: auto-backup-first · Owner + re-auth · typed confirm · <b>disabled once real data exists</b> (&#167;10.11)</div><div class="setrow" style="border-color:rgba(220,38,38,.25)"><div class="sl2"><b style="color:var(--errfg)">Reset application</b><small>vendor-delivery state — currently disabled (data exists)</small></div><button class="btn gh" style="height:36px;opacity:.5;border-color:rgba(220,38,38,.4);color:#DC2626">Reset&#8230;</button></div></div></div></div></div></div></div></div></div><div class="cap"><span class="id">ST-05</span><b>Settings — Dark</b><span class="sw sw-app">Dential</span></div><div class="capnote">Dark counterpart of the Appearance page.</div><div class="fs"><div class="frame dark"><div class="shell"><div class="side"><div class="brand"><div class="blogo">D</div><div class="bname">Dential<small>Dental Lab System</small></div></div><div class="nav"><div class="ngrp">RECORDS</div><div class="nit"><span class="ni">&#8962;</span>Dashboard</div><div class="nit"><span class="ni">&#9685;</span>Doctors</div><div class="nit"><span class="ni">&#9863;</span>Patients</div><div class="nit"><span class="ni">&#9965;</span>Treatment cases</div><div class="ngrp">FINANCIAL</div><div class="nit"><span class="ni">&#128176;</span>Money</div><div class="nit"><span class="ni">&#128202;</span>Reports</div><div class="ngrp">INVENTORY</div><div class="nit"><span class="ni">&#128230;</span>Materials &amp; inventory</div><div class="nit"><span class="ni">&#128666;</span>Suppliers &amp; purchases</div><div class="nit"><span class="ni">&#9879;</span>External labs</div><div class="ngrp">TEAM</div><div class="nit"><span class="ni">&#9776;</span>Technicians</div><div class="ngrp">SYSTEM</div><div class="nit"><span class="ni">&#128737;</span>Users &amp; roles</div><div class="nit on"><span class="ni">&#9881;</span>Settings</div><div class="nit"><span class="ni">&#10003;</span>Audit log</div><div class="nit"><span class="ni">&#9645;</span>Devices &amp; sync</div></div><div class="sfoot"><div class="sav">AH</div><div class="su"><b>Ahmed H.</b><span>Owner</span></div><div class="qi"><span>&#9790;</span><span>?</span><span>&#9881;</span><span>&#9211;</span></div></div></div><div class="main"><div class="topbar"><div class="ttl">Settings</div><div class="gsearch"><span>&#128269;</span>Search patients, doctors, cases…<span class="kbd">Ctrl+K</span></div><div class="tsp"></div><span class="chip c-ok">&#9679; Synced · <span class="num">12:41</span></span><div class="datep">&#128197; <span class="num">Mon · 20 Jul 2026</span></div><div class="tico">&#128276;<span class="dot num">7</span></div><div class="tico">&#9790;</div><div class="tico">&#9881;</div><div class="tav">AH</div><div class="wc"><span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/></svg></span><span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"><rect x="5.5" y="5.5" width="13" height="13" rx="2.5"/></svg></span><span class="cl"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></span></div></div><div class="content"><div class="pagehd"><div><h1>Settings</h1><div class="psub">&#1602;&#1587;&#1591;-style grouped rail (&#167;10.11) · structural settings lock after the first transaction · every change audited</div></div><div class="pact"></div></div><div class="setwrap"><div class="setrail"><div class="setgrp">GENERAL</div><div class="setit on"><span>&#127912;</span>Appearance</div><div class="setit"><span>&#128207;</span>Size &amp; display</div><div class="setit"><span>&#127760;</span>Language</div><div class="setit"><span>&#127970;</span>Company profile</div><div class="setgrp">FINANCE</div><div class="setit"><span>&#128181;</span>Currency &amp; format</div><div class="setit"><span>&#128290;</span>Numbering</div><div class="setit"><span>&#129534;</span>Tax &amp; discounts</div><div class="setgrp">OPERATIONS</div><div class="setit"><span>&#9965;</span>Dental</div><div class="setit"><span>&#128230;</span>Inventory</div><div class="setit"><span>&#128424;</span>Receipts &amp; printing</div><div class="setit"><span>&#128276;</span>Notifications</div><div class="setgrp">SYSTEM</div><div class="setit"><span>&#128737;</span>Security</div><div class="setit"><span>&#128190;</span>Backup &amp; restore</div><div class="setit"><span>&#8635;</span>Updates</div><div class="setit"><span>&#128203;</span>Error log</div><div class="setit"><span>&#10024;</span>Changelog</div><div class="setit"><span>&#9888;</span>Danger zone</div><div class="setgrp">ACCESS</div><div class="setit"><span>&#128101;</span>Users &amp; roles &#8599;</div></div><div class="setbody"><div class="setcard"><h3>Theme</h3><div class="sd">10 themes (5 light · 5 dark) — defaults Clinical Teal / Midnight Slate (&#167;8); golden-tested pair by pair</div><div class="thgrid"><div class="thc on"><div class="tp"><span class="sb2" style="background:#0E1A2E"></span><span class="cn" style="background:#F6F9FB"></span></div><b><span style="display:inline-block;width:10px;height:10px;border-radius:99px;background:#0D9488;margin-inline-end:6px"></span>Clinical Teal</b><small>LIGHT</small></div><div class="thc"><div class="tp"><span class="sb2" style="background:#171448"></span><span class="cn" style="background:#F7F7FE"></span></div><b><span style="display:inline-block;width:10px;height:10px;border-radius:99px;background:#4F46E5;margin-inline-end:6px"></span>Royal Indigo</b><small>LIGHT</small></div><div class="thc"><div class="tp"><span class="sb2" style="background:#3A2E10"></span><span class="cn" style="background:#FDFAF4"></span></div><b><span style="display:inline-block;width:10px;height:10px;border-radius:99px;background:#D97706;margin-inline-end:6px"></span>Warm Sand</b><small>LIGHT</small></div><div class="thc"><div class="tp"><span class="sb2" style="background:#0D2B22"></span><span class="cn" style="background:#F4FBF8"></span></div><b><span style="display:inline-block;width:10px;height:10px;border-radius:99px;background:#059669;margin-inline-end:6px"></span>Forest</b><small>LIGHT</small></div><div class="thc"><div class="tp"><span class="sb2" style="background:#450A2E"></span><span class="cn" style="background:#FDF6F9"></span></div><b><span style="display:inline-block;width:10px;height:10px;border-radius:99px;background:#DB2777;margin-inline-end:6px"></span>Rose Quartz</b><small>LIGHT</small></div><div class="thc"><div class="tp"><span class="sb2" style="background:#020617"></span><span class="cn" style="background:#0F172A"></span></div><b><span style="display:inline-block;width:10px;height:10px;border-radius:99px;background:#14B8A6;margin-inline-end:6px"></span>Midnight Slate</b><small>DARK</small></div><div class="thc"><div class="tp"><span class="sb2" style="background:#05041B"></span><span class="cn" style="background:#111036"></span></div><b><span style="display:inline-block;width:10px;height:10px;border-radius:99px;background:#818CF8;margin-inline-end:6px"></span>Deep Indigo</b><small>DARK</small></div><div class="thc"><div class="tp"><span class="sb2" style="background:#0C0A09"></span><span class="cn" style="background:#1C1917"></span></div><b><span style="display:inline-block;width:10px;height:10px;border-radius:99px;background:#F59E0B;margin-inline-end:6px"></span>Carbon Amber</b><small>DARK</small></div><div class="thc"><div class="tp"><span class="sb2" style="background:#03110D"></span><span class="cn" style="background:#0A1F1A"></span></div><b><span style="display:inline-block;width:10px;height:10px;border-radius:99px;background:#34D399;margin-inline-end:6px"></span>Pine</b><small>DARK</small></div><div class="thc"><div class="tp"><span class="sb2" style="background:#160511"></span><span class="cn" style="background:#2A0F22"></span></div><b><span style="display:inline-block;width:10px;height:10px;border-radius:99px;background:#F472B6;margin-inline-end:6px"></span>Plum</b><small>DARK</small></div></div></div><div class="setcard"><h3>White-label colors</h3><div class="sd">3-way override on top of any theme (&#167;8)</div><div class="setrow"><div class="sl2"><b>Primary color</b><small>buttons · active nav</small></div><span style="width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,#14B8A6,#0D9488)"></span></div><div class="setrow"><div class="sl2"><b>Background</b><small>content canvas</small></div><span style="width:34px;height:34px;border-radius:10px;background:#F6F9FB;border:1px solid var(--hair)"></span></div><div class="setrow"><div class="sl2"><b>Sidebar</b><small>navigation rail</small></div><span style="width:34px;height:34px;border-radius:10px;background:#0E1A2E"></span></div></div></div></div></div></div></div></div></div><div class="sect" id="states">E · Interaction &amp; component states</div><div class="states"><div class="sb"><div class="t">Structural lock</div><div class="mini"><span class="lockp">&#128274; locked after first transaction</span><div class="cap2">Currency, decimals, numbering scheme and similar structural settings freeze once real money exists (&#167;10.11) — the pill explains itself on hover.</div></div></div><div class="sb"><div class="t">Toggle states</div><div class="mini"><div style="display:flex;gap:10px"><span class="tgl on"></span><span class="tgl"></span></div><div class="cap2">Teal ON / neutral OFF — 44px hit target; every settings change is audited (&#167;2.9).</div></div></div><div class="sb"><div class="t">Theme tiles</div><div class="mini"><div style="font-size:12.5px;line-height:1.6;color:#16233A">10 tiles preview sidebar + canvas + accent dot; indigo selection ring; LIGHT/DARK tags.</div><div class="cap2">Golden tests cover RTL &#215; all 10 themes &#215; font/size steps (&#167;14.4).</div></div></div><div class="sb"><div class="t">قسط-harvested items</div><div class="mini"><div style="font-size:12.5px;line-height:1.6;color:#16233A">Error log · Changelog/What&#8217;s-new · guarded Reset · 3-way colors · named sizes · restart-tour — all present in the rail.</div><div class="cap2">Per the §10.11 harvest from Ahmed&#8217;s live قسط app.</div></div></div></div></div></div>
